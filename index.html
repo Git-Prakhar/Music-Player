@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <audio controls style="display: none;" id="song1">
+    </audio>
+    <div class="section" id="section1">
+        <div id="sec1Left">
+            <div id="sec1Logo"><img src="noteImg.png">Music Company</div>
+            <h1>Top Hits</h1>
+            <div id="sec1CardHolder">
+                <div class="sec1Card" onclick="playTopSong(0)">
+                    <div class="sec1CardTitle">Until I Found You</div>
+                    <div class="sec1CardCon">- Stephen Sanchez</div>
+                    <div class="sec1CardBG"></div>
+                    <div class="sec1CardBuyBtn" onclick="buySong('untilIFoundYou')">Buy</div>
+                </div>
+                <div class="sec1Card" onclick="playTopSong(1)">
+                    <div class="sec1CardTitle">Loneliness</div>
+                    <div class="sec1CardCon">- CHMCL SØUP x LXRY PXNK</div>
+                    <div class="sec1CardBG"></div>
+                    <div class="sec1CardBuyBtn" onclick="buySong('lonliness')">Buy</div>
+                </div>
+                <div class="sec1Card" onclick="playTopSong(2)">
+                    <div class="sec1CardTitle">Counting Stars</div>
+                    <div class="sec1CardCon">- OneRepublic</div>
+                    <div class="sec1CardBG"></div>
+                    <div class="sec1CardBuyBtn" onclick="buySong('countingStar')">Buy</div>
+                </div>
+                <div class="sec1Card" onclick="playTopSong(3)">
+                    <div class="sec1CardTitle">STAY</div>
+                    <div class="sec1CardCon">- The Kid LAROI, Justin Bieber</div>
+                    <div class="sec1CardBG"></div>
+                    <div class="sec1CardBuyBtn" onclick="buySong('stay')">Buy</div>
+                </div>
+            </div>
+        </div>
+        <div id="sec1Right">
+            <div id="muteBtn" isMuted="false" onclick="toggleVolume()"></div>
+            <div id="disc"></div>
+            <div class="note" style="background-image: url('./noteT1.png');" id="note1"></div>
+            <div class="note" style="background-image: url('./noteT2.png');" id="note2"></div>
+            <div class="note" style="background-image: url('./noteT2.png');" id="note3"></div>
+            <div class="note" style="background-image: url('./noteT1.png');" id="note4"></div>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <h1 id="sec2Heading">Song List</h1>
+        <div id="sec2Tags">
+            <ul>
+                <li class='filters' id="filterAll" onclick="filterAll()">All Songs</li>
+                <li class='filters' id="filterHindi" onclick="filterHindi()">Hindi</li>
+                <li class='filters' id="filterEnglish" onclick="filterEnglish()">English</li>
+                <li class='filters' id="filterPhonk" onclick="filterPhonk()">Phonk</li>
+                <li class='filters' id="filterAnime" onclick="filterAnime()">Anime</li>
+            </ul>
+        </div>
+        <div id="sec2CardHolder">
+            <div class="sec2Card phonk" style="background-image: url(lonlinessImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Lonliness</div>
+                    <div class="sec2CardDes">CHMCL SØUP x LXRY PXNK</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('lonliness')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("lonliness",0)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card english" style="background-image: url(stayImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Stay</div>
+                    <div class="sec2CardDes">The Kid LAROI, Justin Bieber</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('stay')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("stay",1)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card hindi"
+                style="background-image: url(dilImg.jpg); background-position: -30px 0px; background-size: 610px;">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Dil Diyan Gallan</div>
+                    <div class="sec2CardDes">Atif Aslam</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('dilDiyanGallan')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("dilDiyanGallan",2)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card english" style="background-image: url(oneRepublicImg.jpeg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Counting Stars</div>
+                    <div class="sec2CardDes">OneRepublic</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('countingStar')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("countingStar",3)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card jp" style="background-image: url(redImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">新時代</div>
+                    <div class="sec2CardDes">One Piece Film Red OP - Ado</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('onePieceOpening')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("onePieceOpening",4)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card english"
+                style="background-image: url(until\ i\ found\ you\ Img.jpeg); background-position: left;">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Until I Found You</div>
+                    <div class="sec2CardDes">Stephen Sanchez</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('untilIFoundYou')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("untilIFoundYou",5)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card jp" style="background-image: url(unravel.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Unravel</div>
+                    <div class="sec2CardDes">Tokyo Ghoul OP - Tosite sigure</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('unravel')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("unravel",6)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card phonk" style="background-image: url(metamorphosis.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Metamorphosis</div>
+                    <div class="sec2CardDes">INTERWORLD</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('metamorphosis')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("metamorphosis",7)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card hindi" style="background-image: url(raoneImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Chammak Challo</div>
+                    <div class="sec2CardDes">Akon and Hamsika Iyer</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('chammakChallo')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("chammakChallo",8)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card phonk" style="background-image: url(doubleImg.jpeg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Doublë</div>
+                    <div class="sec2CardDes">Yeat</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('double')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("double",9)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card jp" style="background-image: url(yournameImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">スパークル</div>
+                    <div class="sec2CardDes">Your Name OP - Radwimps</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('yourNameOpening')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("yourNameOpening",10)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card hindi" style="background-image: url(ankhImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Aankh Marey</div>
+                    <div class="sec2CardDes">Kumar Sanu, Neha Kakkar</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('aankhMarey')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("aankhMarey",11)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card phonk" style="background-image: url(raptureImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Rapture</div>
+                    <div class="sec2CardDes">INTERWORLD</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('rapture')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("rapture",12)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card jp" style="background-image: url(gurengeImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Gurenge</div>
+                    <div class="sec2CardDes">Demon Slayer OP - Lisa</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('gurenge')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("gurenge",13)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card english" style="background-image: url(cupidImg.jpg);">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Cupid</div>
+                    <div class="sec2CardDes">Fifty Fifty</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('cupid')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("cupid",14)'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2Card hindi" style="background-image: url(palImg.jpg); background-position: right;">
+                <div class="sec2CardCon">
+                    <div class="sec2CardTitle">Pal Pal Dil ke Paas</div>
+                    <div class="sec2CardDes">Kishore Kumar</div>
+                    <div class="sec2CardBtns">
+                        <div class="sec2CardBtn" onClick="buySong('palpal')">Buy</div>
+                        <div class="sec2CardPlayBtn" onClick='playSong("palpal",15)'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <h1>Buy Song</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td style="width: 220px;"><strong>Id</strong></td>
+                    <td><strong>Song</strong></td>
+                    <td style="width: 220px;"><strong>Price</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2930012</td>
+                    <td id="songName">Song Name</td>
+                    <td>8000Rs</td>
+                </tr>
+                <tr>
+                    <td>-></td>
+                    <td>Tax :</td>
+                    <td>800Rs</td>
+                </tr>
+                <tr>
+                    <td>-></td>
+                    <td>Discount :</td>
+                    <td>100Rs</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><strong>T</strong></td>
+                    <td><strong>Total : </strong></td>
+                    <td><strong>8700/-</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button onclick="buyBtn()">Buy Song</button>
+    </div>
+</body>
+</html>
